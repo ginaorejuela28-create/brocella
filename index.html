@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Borcelle – Panadería, Brunch & Coffee</title>
+  <meta name="description" content="Borcelle: panadería artesanal, brunch europeo y café de especialidad." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#faf5ef;
+      --card:#fff9f2;
+      --text:#3b2f2f;
+      --muted:#8a7666;
+      --accent:#c07a3f; /* tono caramelo */
+      --line:#e7d9c9;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(250,245,239,.85);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff, #f1e1cf 60%, #d7bca1 100%);border:1px solid var(--line)}
+    .brand h1{font-family:"Playfair Display",serif;font-size:1.25rem;margin:0}
+    .brand small{display:block;color:var(--muted);font-weight:500;margin-top:2px}
+    .nav a{padding:8px 12px;border-radius:10px}
+    .nav a:hover{background:#f3e7d8}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden}
+    .hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;padding:60px 0}
+    .hero h2{font-family:"Playfair Display",serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:0 0 12px}
+    .hero p{color:var(--muted);margin:0 0 20px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:600}
+    .btn.primary{background:var(--accent);border-color:transparent;color:white}
+    .btn:hover{transform:translateY(-1px)}
+    .hero-card{background:var(--card);padding:14px;border-radius:18px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.06)}
+
+    /* Sections */
+    section{padding:64px 0;border-top:1px solid var(--line)}
+    h3.section-title{font-family:"Playfair Display",serif;font-size:2rem;margin:0 0 14px}
+    .section-sub{color:var(--muted);margin:0 0 28px}
+
+    /* Grid cards */
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+    .card h4{font-family:"Playfair Display",serif;margin:0 0 10px}
+    .muted{color:var(--muted)}
+
+    /* Menu */
+    .menu-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .chip{border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:#fff;cursor:pointer}
+    .chip.active{background:#2e1e14;color:#fff;border-color:#2e1e14}
+    .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .menu-item{display:flex;justify-content:space-between;gap:8px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:white}
+    .menu-item .name{font-weight:600}
+    .menu-item .desc{color:var(--muted);font-size:.92rem}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .gallery img{border-radius:16px;height:140px;object-fit:cover}
+
+    /* Footer */
+    footer{padding:40px 0}
+    .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
+    .copyright{color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .menu-grid{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+      .footer-inner{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Borcelle</h1>
+          <small>Panadería, Brunch & Coffee</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#historia">Historia</a>
+        <a href="#menu">Menú</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h2>Pan artesanal, brunch europeo y café de especialidad.</h2>
+        <p>Un espacio inspirado en la cultura del brunch —al estilo de las mejores cafeterías— donde el pan horneado a diario y el café bien hecho son protagonistas.</p>
+        <div class="cta">
+          <a class="btn primary" href="#menu">Ver menú</a>
+          <a class="btn" href="#contacto">Ubicación & horarios</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1529079891928-38ddcfd5a568?q=80&w=1600&auto=format&fit=crop" alt="Mesa de brunch con pan y café" />
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA / CONCEPTO -->
+  <section id="historia">
+    <div class="container">
+      <h3 class="section-title">Nuestra historia</h3>
+      <p class="section-sub">Borcelle nació de la pasión por el pan artesanal y los momentos compartidos en torno a una taza de café. Inspirados en la experiencia del brunch europeo, creamos un lugar donde tradición y modernidad conviven: croissants y pan de yuca, shakshuka y tarta vasca, espresso y cold brew. Aquí cada visita es una pausa deliciosa.</p>
+      <div class="grid cols-3">
+        <div class="card">
+          <h4>Panadería diaria</h4>
+          <p class="muted">Horneamos cada mañana. Harinas seleccionadas, técnicas artesanales y recetas propias.</p>
+        </div>
+        <div class="card">
+          <h4>Café de especialidad</h4>
+          <p class="muted">Espresso, cappuccino, flat white y métodos filtrados. Tostadores aliados y temporada.</p>
+        </div>
+        <div class="card">
+          <h4>Brunch creativo</h4>
+          <p class="muted">Clásicos europeos con toques locales. Opciones dulces y saladas para todos los antojos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENÚ -->
+  <section id="menu">
+    <div class="container">
+      <h3 class="section-title">Menú</h3>
+      <p class="section-sub">Selecciona una categoría para explorar.</p>
+
+      <div class="menu-toolbar" role="tablist">
+        <button class="chip active" data-cat="panaderia" role="tab">Panadería</button>
+        <button class="chip" data-cat="brunch" role="tab">Brunch</button>
+        <button class="chip" data-cat="pasteles" role="tab">Pasteles</button>
+        <button class="chip" data-cat="postres" role="tab">Postres</button>
+        <button class="chip" data-cat="bebidas" role="tab">Bebidas</button>
+        <button class="chip" data-cat="friosp" role="tab">Postres fríos</button>
+      </div>
+
+      <!-- Panadería -->
+      <div class="menu-grid" data-section="panaderia">
+        <div class="menu-item"><div><div class="name">Pan de mantequilla</div><div class="desc">Tradicional</div></div><div>$0.25</div></div>
+        <div class="menu-item"><div><div class="name">Pan de queso</div><div class="desc">Tradicional</div></div><div>$0.33</div></div>
+        <div class="menu-item"><div><div class="name">Croissant</div><div class="desc">Hojaldre mantequilla</div></div><div>$0.92</div></div>
+        <div class="menu-item"><div><div class="name">Pan de yuca</div><div class="desc">Tradicional</div></div><div>$0.30</div></div>
+        <div class="menu-item"><div><div class="name">Pan de maíz (sin gluten)</div><div class="desc">Artesanal</div></div><div>$0.45</div></div>
+        <div class="menu-item"><div><div class="name">Pan de arroz (sin gluten)</div><div class="desc">Artesanal</div></div><div>$0.26</div></div>
+        <div class="menu-item"><div><div class="name">Pan de quinoa (sin gluten)</div><div class="desc">Artesanal</div></div><div>$0.31</div></div>
+      </div>
+
+      <!-- Brunch (expansión propuesta) -->
+      <div class="menu-grid" data-section="brunch" hidden>
+        <div class="menu-item"><div><div class="name">Avocado toast</div><div class="desc">Con huevo pochado y semillas</div></div><div>$6.50</div></div>
+        <div class="menu-item"><div><div class="name">English breakfast</div><div class="desc">Huevos, salchicha, frijoles, tomates, pan</div></div><div>$9.50</div></div>
+        <div class="menu-item"><div><div class="name">Shakshuka</div><div class="desc">Huevos en salsa de tomate especiada</div></div><div>$7.80</div></div>
+        <div class="menu-item"><div><div class="name">Sándwich de roast beef</div><div class="desc">Rúcula y mostaza dijon</div></div><div>$8.90</div></div>
+        <div class="menu-item"><div><div class="name">Waffles con frutas</div><div class="desc">Miel o sirope</div></div><div>$6.90</div></div>
+        <div class="menu-item"><div><div class="name">Yogurt bowl</div><div class="desc">Yogurt griego, granola y miel</div></div><div>$5.20</div></div>
+      </div>
+
+      <!-- Pasteles -->
+      <div class="menu-grid" data-section="pasteles" hidden>
+        <div class="menu-item"><div><div class="name">Banano</div><div class="desc">Por pastel</div></div><div>$10.00</div></div>
+        <div class="menu-item"><div><div class="name">Chocolate</div><div class="desc">Por pastel</div></div><div>$12.00</div></div>
+        <div class="menu-item"><div><div class="name">Naranja</div><div class="desc">Por pastel</div></div><div>$12.00</div></div>
+        <div class="menu-item"><div><div class="name">Zanahoria y nueces</div><div class="desc">Por pastel</div></div><div>$15.00</div></div>
+      </div>
+
+      <!-- Postres -->
+      <div class="menu-grid" data-section="postres" hidden>
+        <div class="menu-item"><div><div class="name">Tiramisú</div></div><div>$3.25</div></div>
+        <div class="menu-item"><div><div class="name">Mojada de chocolate</div></div><div>$3.85</div></div>
+        <div class="menu-item"><div><div class="name">Tarta vasca</div></div><div>$3.70</div></div>
+        <div class="menu-item"><div><div class="name">Choco chips</div><div class="desc">Galleta</div></div><div>$1.00</div></div>
+      </div>
+
+      <!-- Bebidas -->
+      <div class="menu-grid" data-section="bebidas" hidden>
+        <div class="menu-item"><div><div class="name">Café frío o caliente</div></div><div>$3.90</div></div>
+        <div class="menu-item"><div><div class="name">Té matcha</div></div><div>$4.30</div></div>
+        <div class="menu-item"><div><div class="name">Batidos de fruta</div></div><div>$3.00</div></div>
+        <div class="menu-item"><div><div class="name">Jugo de naranja</div></div><div>$2.50</div></div>
+        <div class="menu-item"><div><div class="name">Agua</div></div><div>$1.00</div></div>
+        <div class="menu-item"><div><div class="name">Cold brew</div><div class="desc">Café de extracción en frío</div></div><div>$4.20</div></div>
+        <div class="menu-item"><div><div class="name">Chai latte</div></div><div>$4.10</div></div>
+      </div>
+
+      <!-- Postres fríos -->
+      <div class="menu-grid" data-section="friosp" hidden>
+        <div class="menu-item"><div><div class="name">Helados artesanales</div></div><div>$1.50</div></div>
+        <div class="menu-item"><div><div class="name">Parfaits</div></div><div>$4.00</div></div>
+        <div class="menu-item"><div><div class="name">Mousse del día</div></div><div>$3.80</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="container">
+      <h3 class="section-title">Galería</h3>
+      <p class="section-sub">Un vistazo a lo que amamos preparar.</p>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1200&auto=format&fit=crop" alt="Croissants recién horneados" />
+        <img src="https://images.unsplash.com/photo-1514517220031-6807059f0b0e?q=80&w=1200&auto=format&fit=crop" alt="Café latte" />
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop" alt="Tarta de chocolate" />
+        <img src="https://images.unsplash.com/photo-1542691457-cbe4df041eb2?q=80&w=1200&auto=format&fit=crop" alt="Avocado toast" />
+        <img src="https://images.unsplash.com/photo-1533082389087-3bcb95ca7e2a?q=80&w=1200&auto=format&fit=crop" alt="Shakshuka" />
+        <img src="https://images.unsplash.com/photo-1548940740-204726a19be3?q=80&w=1200&auto=format&fit=crop" alt="Mesa de brunch" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <h3 class="section-title">Ubicación & contacto</h3>
+      <div class="grid cols-2">
+        <div class="card">
+          <h4>Horarios</h4>
+          <p class="muted">Lun–Vie: 08:00–19:00<br/>Sáb–Dom: 09:00–18:00</p>
+          <h4>Dirección</h4>
+          <p class="muted">Tu calle y ciudad aquí</p>
+          <h4>WhatsApp</h4>
+          <p class="muted">+593 000 000 000</p>
+        </div>
+        <div class="card">
+          <h4>Escríbenos</h4>
+          <form onsubmit="event.preventDefault();alert('¡Gracias! Te responderemos pronto.');">
+            <label>Nombre<br/>
+              <input required style="width:100%;padding:10px;border-radius:12px;border:1px solid var(--line);background:#fff" />
+            </label>
+            <br/><br/>
+            <label>Mensaje<br/>
+              <textarea required rows="4" style="width:100%;padding:10px;border-radius:12px;border:1px solid var(--line);background:#fff"></textarea>
+            </label>
+            <br/><br/>
+            <button class="btn primary" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>Borcelle</strong>
+        <p class="copyright">© <span id="y"></span> Borcelle. Todos los derechos reservados.</p>
+      </div>
+      <div>
+        <h4>Secciones</h4>
+        <p class="muted"><a href="#historia">Historia</a><br/><a href="#menu">Menú</a><br/><a href="#galeria">Galería</a><br/><a href="#contacto">Contacto</a></p>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <p class="muted">Instagram · Facebook · TikTok</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón WhatsApp flotante -->
+  <a href="https://wa.me/593000000000" aria-label="WhatsApp" style="position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;font-weight:700;box-shadow:0 10px 20px rgba(0,0,0,.15)">WhatsApp</a>
+
+  <script>
+    // Año dinámico
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Tabs de menú
+    const chips = document.querySelectorAll('.chip');
+    const sections = document.querySelectorAll('[data-section]');
+    chips.forEach(ch => ch.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      ch.classList.add('active');
+      const cat = ch.getAttribute('data-cat');
+      sections.forEach(s => {
+        s.hidden = s.getAttribute('data-section') !== cat;
+      });
+      // scroll suave si está fuera de vista en móviles
+      const menuTop = document.getElementById('menu').offsetTop - 70;
+      window.scrollTo({ top: menuTop, behavior: 'smooth' });
+    }));
+  </script>
+</body>
+</html>
